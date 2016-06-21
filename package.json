@@ -1,6 +1,6 @@
 {
   "name": "twixt-mutation-event",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "MutationEvent class extending CustomEvent",
   "main": "mutation-event.js",
   "scripts": {
