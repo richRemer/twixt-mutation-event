@@ -4,42 +4,47 @@
  * @augments {CustomEvent}
  * @param {object} mutations
  * @param {number} count
+ * @returns {MutationEvent}
  */
 function MutationEvent(mutations, count) {
-    CustomEvent.call(this, "mutation", {detail: {
-        mutations: Object.freeze(mutations),
-        count: count
-    }});
+    var evt = new CustomEvent("mutation", {detail: {
+            mutations: Object.freeze(mutations),
+            count: count
+        }});
+
+    Object.defineProperties(evt, {
+        /**
+         * @name MutationEvent#mutations
+         * @type {object}
+         * @readonly
+         */
+        mutations: {
+            configurable: true,
+            enumerable: true,
+            get: function() {
+                return this.detail.mutations;
+            }
+        },
+
+        /**
+         * @name MutationEvent#count
+         * @type {number}
+         * @readonly
+         */
+        count: {
+            configurable: true,
+            enumerable: true,
+            get: function() {
+                return this.detail.count;
+            }
+        }
+    });
+
 }
 
-MutationEvent.prototype = Object.create(CustomEvent.prototype);
-
-Object.defineProperties(MutationEvent.prototype, {
-    /**
-     * @name MutationEvent#mutations
-     * @type {object}
-     * @readonly
-     */
-    mutations: {
-        configurable: true,
-        enumerable: true,
-        get: function() {
-            return this.detail.mutations;
-        }
-    },
-    
-    /**
-     * @name MutationEvent#count
-     * @type {number}
-     * @readonly
-     */
-    count: {
-        configurable: true,
-        enumerable: true,
-        get: function() {
-            return this.detail.count;
-        }
-    }
-});
+/**
+ * @typedef {object} MutationEvent
+ * @augments {CustomEvent}
+ */
 
 module.exports = MutationEvent;
