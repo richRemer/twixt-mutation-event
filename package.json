@@ -1,0 +1,19 @@
+{
+  "name": "twixt-mutation-event",
+  "version": "0.0.1",
+  "description": "MutationEvent class extending CustomEvent",
+  "main": "mutation-event.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/richRemer/twixt-mutation-event.git"
+  },
+  "author": "Richard Remer (reanjr@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/richRemer/twixt-mutation-event/issues"
+  },
+  "homepage": "https://github.com/richRemer/twixt-mutation-event#readme"
+}
