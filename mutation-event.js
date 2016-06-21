@@ -40,6 +40,7 @@ function MutationEvent(mutations, count) {
         }
     });
 
+    return evt;
 }
 
 /**
